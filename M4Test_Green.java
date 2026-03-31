@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
-public class M4Test_GreenGreen{public static void main(String[] args) {
+public class M4Test_Green{public static void main(String[] args) {
 
     Scanner input = new Scanner(System.in);
 
