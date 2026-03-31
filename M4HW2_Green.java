@@ -1,63 +1,57 @@
-
+// Javon Green
+// M4HW2
+// 3.26.2026
+// Create a progrom that determines if the user can vote, and state any reasons that make them ineligible
 
 import java.util.Scanner;
 
-public class M4HW2_Green {
-public static void main(String[] args) {
+public class M4HW2_Green {public static void main(String[] args) {
 
     Scanner input = new Scanner(System.in);
 
-    //Variables
-    int registeredCoutnry, age, citiznship, felonyOrProbation, vote = 0;
+    //DECLARE
+    int registered, age, citizenship, felonyOrProbation, vote = 0;
 
-    //Input
-    System.out.println("How long have you lived in the country your registering in:");
-    registeredCoutnry = input.nextInt();
-    System.out.println("What is your age?");
+    //INPUT
+    System.out.println("For the following questions, type 1 for true and 2 for false:");
+    System.out.print("Are you 18 years of age? ");
     age = input.nextInt();
-    System.out.println("For the following questions, type 1 for yes or 2 for no");
-    System.out.println("Are you a citizen of the United States?");
+    System.out.print("Have you lived in your registered country for at least 30 days? ");
+    registered = input.nextInt();
+    System.out.print("Are you a citizen of the United States? ");
     citizenship = input.nextInt();
-    System.out.println("Are you serving a felony sentence");
-    felony = input.nextLine();
-    System.out.println("Are your currently on any form of probation?");
-    probation = input.nextLine();
+    System.out.print("Are you serving a felony sentence, or on any form of probation? ");
+    felonyOrProbation = input.nextInt();
 
     //Calculate
-    if(registeredCoutnry>=30){
-        if(age>=18){
+    if(registered==1){
+        if(age==1){
             if(citizenship==1){
-                if(felony==1){
-                    if(probation==1){
-                        vote = TRUE;
-                    }
+                if(felonyOrProbation==2){
+                    vote = 1;
                 }
             }
         }
     }
 
     //Output
-    if(vote==TRUE){
+    if(vote==1){
         System.out.println("Congragulations! You are eligible to vote");
     }
     else{
-        System.out.println("You are unable to vote for the following reasons:");
-        if(registeredCountry<30){
-            System.out.println("You must live in your registering country for at least 30 days");
+        System.out.println("You are ineligable to vote for the following reasons:");
+        if(registered!=1){
+            System.out.println("You must live in your registered country for at least 30 days.");
         }
-        if(age<18){
-            System.out.println("You must be 18 years of age or older");
+        if(age!=1){
+            System.out.println("You must be 18 years of age or older.");
         }
         if(citizenship!=1){
-            System.out.println("You must be a citizen of the United State");
+            System.out.println("You must be a citizen of the United States.");
         }
-        if("felony!=1"){
-            System.out.println("You cannot vote while serving a felony");
+        if(felonyOrProbation!=2){
+            System.out.println("You cannot vote while currently serving a felony or currently on probation.");
         }
-        if(probation!=1){
-            System.out.println("You cannot vote while on probation");
-        }
-    }
     input.close();
 }
-}
+}}

@@ -12,7 +12,7 @@ public class M4Test_GreenGreen{public static void main(String[] args) {
     double total, percentMajors, percentNonMajors;
 
     //OBTAIN INPUTS
-    System.out.print("\nEnter the number of students majoring in CS: ");
+    System.out.print("Enter the number of students majoring in CS: ");
     majors = input.nextInt();
     System.out.print("Enter the number of non-computer science students: ");
     nonMajors = input.nextInt();
