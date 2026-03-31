@@ -1,4 +1,5 @@
 //Javon Green - 3.31.2026
+//Write a programn that displays the sum of 5 numbers, using the "for" structre loop
 
 public class M5CW1_Green{public static void main (String args[]){
 

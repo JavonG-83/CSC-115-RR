@@ -2,7 +2,7 @@
 //Create a programn that detemrines the sum and average of 5 prices, using a do-while structure loop
 
 import java.util.Scanner;
-public class M5CW2_Green { public void main (String args[]){
+public class M5CW2_Green { public static void main (String args[]){
 
 //Setup
 Scanner input = new Scanner(System.in);
@@ -11,8 +11,8 @@ int priceDo=5, priceWhile=0; //I'll initilize them as variables to help ,modify 
 
 //Implement the loop
 do{
-    System.out.print("Enter the price of item #"+priceWhile+1);
-    response = input.nextInt();
+    System.out.print("Enter the price of item #"+(priceWhile+1)+": ");
+    response = input.nextDouble();
     if(response>0 && response<=10000){
     sum += response;
     priceWhile+=1; 
