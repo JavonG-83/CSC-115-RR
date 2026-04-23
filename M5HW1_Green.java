@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 //1.Rename the file
-public class M5HW1_Green{public static void main(String[] args){ 
+public class M5HW1_Green{public static void main(String args[]){ 
 
 String repeat = "y";
 Scanner k = new Scanner(System.in);
