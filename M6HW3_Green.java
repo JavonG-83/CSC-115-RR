@@ -8,8 +8,6 @@ Design a programn that calculate monthly commisions for widget sales
 import java.util.Scanner;
 public class M6HW3_Green {public static void main(String args[]){
 Scanner scc = new Scanner(System.in); //Sales Commission Calculator
-
-        //Design a programn that calculate monthly commisions for widget sales
     String name;
     int sold, returned, net;
     double commission;
@@ -27,6 +25,5 @@ Scanner scc = new Scanner(System.in); //Sales Commission Calculator
     System.out.println("Name: "+name);
     System.out.println("Net widgets sold"+net);
     System.out.println("Total commision earned"+commission);
-
 scc.close();
 }}
