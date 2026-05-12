@@ -31,18 +31,19 @@ public class GreenFinal{
     }
     public static double getItemPrices(Scanner input, int count){
         //Use a for loop to get the total cost, and a while loop to validate inputs
-        double subtotal = 0;
-        double itemPrice = 0;
+        double subtotal = 0;  //Our cumulutive sum of all the items
+        double itemPrice = 0;  //keeps track of a single item, and adds it to the total
         for (int i = 0; i < count; i++){    //this helps tally the total costs for display
-            while (i<count){    //This won't proceed with the loop until a valid input is provided
+            while (true){    //This prevents any invalid inputs.
                 System.out.print("Enter item #"+(i+1)+": ");
                 itemPrice = input.nextDouble();
                 if (itemPrice < 0){
                     System.out.println("Item price cannot be less than zero. Please try again");
                 }
                 else{
-                    break;
+                    break;  //Stops the while 
                 }
+*/
             }
             subtotal += itemPrice;
         }
