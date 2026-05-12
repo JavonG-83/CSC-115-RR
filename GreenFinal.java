@@ -3,36 +3,63 @@
 //CIS-115 Final
 //Develop a program that will allow a clerk to enter prices for items purchased and generate the subtotal, tax and total. 
 
-/*
-import java.util.Scanner;
-public class GreenFinal {
-public static void main(String args[]){
-    displayInfo();
-}    
-}
-public static void displayInfo(){
-    System.out.println("Javon Green");
-    System.out.println("2026 Spring CIS 155 Final Exam"); //Updated the date for this program (Please don't tax me over this)
-    System.out.println("");
-}
-    */
-
 import java.util.Scanner;
 public class GreenFinal{
-    Scanner input = new Scanner(System.in);
+    
     public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
         displayInfo();
+        System.out.println();
         int itemCount = getItemCount(input);
+        System.out.println();
+        double subtotal = getItemPrices(input, itemCount);
+        double taxDue = getSalesTax(subtotal);
+        double totalOwed = getTotalOwed(subtotal, taxDue);
+        System.out.println();
+        displayValues(itemCount, subtotal, taxDue, totalOwed);
+        input.close();
     }
     public static void displayInfo(){
         System.out.println("Javon Green");
-        System.out.println("2026 Spring CIS 155 Final Exam"); //Updated the date for this program (Please don't tax me over this)
+        System.out.println("2026 Spring CIS 115 Final Exam"); //Updated the date for this program (Please don't tax me over this)
         System.out.println("I did not use AI to help me with this final");
         System.out.println("I used only concepts covered in class");
     }
-    public int getItemCount(Scanner input){
-        System.out.println("How many items do you plan to purchase?");
+    public static int getItemCount(Scanner input){
+        System.out.print("How many items do you plan to purchase? ");
         return input.nextInt();
+    }
+    public static double getItemPrices(Scanner input, int count){
+        //Use a for loop to get the total cost, and a while loop to validate inputs
+        double subtotal = 0;
+        double itemPrice = 0;
+        for (int i = 0; i < count; i++){    //this helps tally the total costs for display
+            while (i<count){    //This won't proceed with the loop until a valid input is provided
+                System.out.print("Enter item #"+(i+1)+": ");
+                itemPrice = input.nextDouble();
+                if (itemPrice < 0){
+                    System.out.println("Item price cannot be less than zero. Please try again");
+                }
+                else{
+                    break;
+                }
+            }
+            subtotal += itemPrice;
+        }
+        return subtotal;
+    }
+    public static double getSalesTax(double subtotal){
+        final double SALES_TAX = 0.07;
+        return subtotal * SALES_TAX;
+    }
+    public static double getTotalOwed(double subtotal, double taxDue){
+        return subtotal + taxDue;
+    }
+    public static void displayValues(int itemCount, double subtotal, double taxDue, double totalOwed){
+        System.out.println("Number of items: "+itemCount);
+        System.out.println("subtotal: "+subtotal);
+        System.out.println("Taxes Due: "+taxDue);
+        System.out.println("Total Owed: "+totalOwed);
     }
 }
 
@@ -57,28 +84,10 @@ Try/Except
 While True
 Use the data given to test your program
 --------
-3. Create a function called getItemPrices() that will get the total cost of items
-purchased. This function will be called from the main() method. Accept the
-scanner variable and number of items as arguments. Only use the data given to
-test your program. Use a For loop to get the total cost. Use a while loop to
-validate your price inputs. Item price cannot be below 0 however it can be as high
-as you wish. If item price is below zero, then tell the user the price is incorrect and
-allow the user to re-enter the price again. Do not assume the user meant 23
-when they entered -23. Return the total sold cost back to the main() function to be
-used in further functions.
-4. Create a function called getSalesTax() that will calculate the sales tax based on
-the total cost of items sold. This function will be called from the main() method.
-Pass the total cost as an argument. This function will need to use total amount
-sold to get sales tax. Sales tax will be 7% and must be declared as a constant.
-Multiply tax by total cost to get the sale tax. Return the sales tax back to the main
-method for use in further functions.
-5. Create a function called getTotalOwed() that will return the total owed by adding
-the total cost of items plus the tax back to the main() method. Pass the total cost
-and sales tax as arguments. This function will be called from the main() method.
 6. Create a method called displayValues() that will be called from the main() method.
 Pass all arguments needed. The method will display the following:
 Number of Items:
-Subtotal:
+subtotal:
 Tax Due:
 Total Owed:
 Use the following data to check your program. If value is negative, when
